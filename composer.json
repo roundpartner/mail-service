@@ -8,6 +8,11 @@
         }
     ],
     "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "MailService": "src/"
+        }
+    },
     "require": {
         "mailgun/mailgun-php": "^1.8"
     },

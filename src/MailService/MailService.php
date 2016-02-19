@@ -12,8 +12,23 @@ use Mailgun\Mailgun;
 class MailService
 {
 
+    protected $mailgun;
+
+    /**
+     * MailService constructor.
+     *
+     * @param $apiKey
+     */
+    public function __construct($apiKey)
+    {
+        $this->mailgun = new Mailgun($apiKey);
+    }
+
+    /**
+     * @return Mailgun
+     */
     public function getMailService()
     {
-        return new Mailgun();
+        return $this->mailgun;
     }
 }

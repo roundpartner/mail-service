@@ -62,7 +62,7 @@ class MailService
     /**
      * @param array $postData
      *
-     * @return array
+     * @return Response
      */
     public function sendMessage($postData)
     {

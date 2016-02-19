@@ -11,11 +11,13 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
      */
     protected $service;
 
+    /**
+     * Set up a test
+     */
     public function setUp()
     {
         parent::setUp();
-        $config = $this->getConfig();
-        $this->service = new \MailService\MailService($config);
+        $this->service = \MailService\MailService::createService('fakekey', 'mailinator.com');
     }
 
     /**
@@ -46,17 +48,6 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
             'o:tracking' => false,
         );
         $this->assertInstanceOf('\MailService\Entity\Response', $this->service->sendMessage($postData));
-    }
-
-    /**
-     * @return \MailService\Entity\Configuration
-     */
-    private function getConfig()
-    {
-        $config = new \MailService\Entity\Configuration();
-        $config->key = 'fakekey';
-        $config->endpoint = 'mailinator.com';
-        return $config;
     }
 
 }

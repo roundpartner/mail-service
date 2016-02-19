@@ -2,7 +2,7 @@
 
 namespace MailService;
 
-use Mailgun\Mailgun;
+use Mailgun\Mailgun as MailGun;
 use MailService\Entity\Configuration;
 use MailService\Entity\Response;
 use MailService\Entity\ResponseBody;
@@ -16,21 +16,39 @@ class MailService
 {
 
     /**
-     * @var Mailgun
+     * @var MailGun
      */
     protected $service;
 
+    /**
+     * @var Configuration
+     */
     protected $config;
 
     /**
      * MailService constructor.
      *
-     * @param string|Configuration $config
+     * @param Configuration $config
      */
     public function __construct($config)
     {
         $this->config = $config;
-        $this->service = new Mailgun($config->key);
+        $this->service = new MailGun($config->key);
+    }
+
+    /**
+     * Factory method to create new service
+     *
+     * @param string $key
+     * @param string $endpoint
+     * @return MailService
+     */
+    public static function createService($key, $endpoint)
+    {
+        $config = new Configuration();
+        $config->key = $key;
+        $config->endpoint = $endpoint;
+        return new self($config);
     }
 
     /**

@@ -1,22 +1,22 @@
 {
-    "name": "roundpartner/mailservice",
-    "description": "Service for sending mail transactions",
-    "authors": [
-        {
-            "name": "Tom Lorentsen",
-            "email": "tom@roundpartner.co.uk"
-        }
-    ],
-    "autoload": {
-        "psr-0": {
-            "MailService": "src/"
-        }
-    },
-    "require": {
-        "mailgun/mailgun-php": "^1.8"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^4.8"
-    },
-    "minimum-stability": "stable"
+  "name": "roundpartner/mailservice",
+  "description": "Service for sending mail transactions",
+  "authors": [
+    {
+      "name": "Tom Lorentsen",
+      "email": "tom@roundpartner.co.uk"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "MailService": "src/"
+    }
+  },
+  "require": {
+    "mailgun/mailgun-php": "^1.8"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8"
+  },
+  "minimum-stability": "stable"
 }

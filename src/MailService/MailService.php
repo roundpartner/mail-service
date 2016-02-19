@@ -3,6 +3,9 @@
 namespace MailService;
 
 use Mailgun\Mailgun;
+use MailService\Entity\Configuration;
+use MailService\Entity\Response;
+use MailService\Entity\ResponseBody;
 
 /**
  * Class MailService
@@ -12,23 +15,49 @@ use Mailgun\Mailgun;
 class MailService
 {
 
-    protected $mailgun;
+    /**
+     * @var Mailgun
+     */
+    protected $service;
+
+    protected $config;
 
     /**
      * MailService constructor.
      *
-     * @param $apiKey
+     * @param string|Configuration $config
      */
-    public function __construct($apiKey)
+    public function __construct($config)
     {
-        $this->mailgun = new Mailgun($apiKey);
+        $this->config = $config;
+        $this->service = new Mailgun($config->key);
     }
 
     /**
-     * @return Mailgun
+     * @param $service
      */
-    public function getMailService()
+    public function setService($service)
     {
-        return $this->mailgun;
+        $this->service = $service;
     }
+
+    /**
+     * @param array $postData
+     *
+     * @return array
+     */
+    public function sendMessage($postData)
+    {
+        // todo: tidy up this code
+        $response = $this->service->sendMessage($this->config->endpoint, $postData);
+        $responseBody = new ResponseBody();
+        $responseBody->id = $response->http_response_body->id;
+        $responseBody->message = $response->http_response_body->message;
+        $responseEntity = new Response();
+        $responseEntity->responseCode = $response->http_response_code;
+        $responseEntity->body = $responseBody;
+
+        return $responseEntity;
+    }
+
 }

@@ -1,9 +1,28 @@
 <?php
 
+/**
+ * Class MailServiceTest
+ */
 class MailServiceTest extends PHPUnit_Framework_TestCase
 {
-    public function testInitService()
+
+    /**
+     * @var \MailService\MailService
+     */
+    protected $service;
+
+    public function setUp()
     {
-        new \MailService\MailService();
+        parent::setUp();
+        $this->service = new \MailService\MailService();
     }
+
+    /**
+     * Tests that instance of mailgun can be retrieved
+     */
+    public function testGetInstanceOfMailgun()
+    {
+        $this->assertInstanceOf('\Mailgun\Mailgun', $this->service->getMailService());
+    }
+
 }

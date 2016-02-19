@@ -1,0 +1,12 @@
+{
+    "name": "roundpartner/mailservice",
+    "description": "Service for sending mail transactions",
+    "authors": [
+        {
+            "name": "Tom Lorentsen",
+            "email": "tom@roundpartner.co.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

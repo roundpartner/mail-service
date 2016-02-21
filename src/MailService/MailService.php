@@ -37,21 +37,6 @@ implements MailServiceInterface
     }
 
     /**
-     * Factory method to create new service
-     *
-     * @param string $key
-     * @param string $endpoint
-     * @return MailService
-     */
-    public static function createService($key, $endpoint)
-    {
-        $config = new Configuration();
-        $config->key = $key;
-        $config->endpoint = $endpoint;
-        return new self($config);
-    }
-
-    /**
      * @param MailServiceInterface $plugin
      *
      * @return MailService

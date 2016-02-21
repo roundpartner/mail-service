@@ -17,7 +17,7 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->service = \MailService\MailService::createService('fakekey', 'mailinator.com');
+        $this->service = \MailService\MailServiceFactory::createService('fakekey', 'mailinator.com');
     }
 
     /**

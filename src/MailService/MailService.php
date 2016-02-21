@@ -13,6 +13,7 @@ use MailService\Entity\ResponseBody;
  * @package MailService
  */
 class MailService
+implements MailServiceInterface
 {
 
     /**

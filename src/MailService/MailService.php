@@ -2,7 +2,6 @@
 
 namespace MailService;
 
-use Mailgun\Mailgun as MailGun;
 use MailService\Entity\Configuration;
 use MailService\Entity\Response;
 

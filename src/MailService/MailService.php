@@ -19,7 +19,7 @@ implements MailServiceInterface
     /**
      * @var MailGun
      */
-    protected $service;
+    protected $plugin;
 
     /**
      * @var Configuration
@@ -34,7 +34,7 @@ implements MailServiceInterface
     public function __construct($config)
     {
         $this->config = $config;
-        $this->service = new MailGun($config->key);
+        $this->plugin = new Plugin\MailGun($config);
     }
 
     /**
@@ -53,11 +53,22 @@ implements MailServiceInterface
     }
 
     /**
-     * @param $service
+     * @param MailServiceInterface $plugin
+     *
+     * @return MailService
      */
-    public function setService($service)
+    public function setPlugin($plugin)
     {
-        $this->service = $service;
+        $this->plugin = $plugin;
+        return $this;
+    }
+
+    /**
+     * @return MailServiceInterface
+     */
+    public function getPlugin()
+    {
+        return $this->plugin;
     }
 
     /**
@@ -67,16 +78,7 @@ implements MailServiceInterface
      */
     public function sendMessage($postData)
     {
-        // todo: tidy up this code
-        $response = $this->service->sendMessage($this->config->endpoint, $postData);
-        $responseBody = new ResponseBody();
-        $responseBody->id = $response->http_response_body->id;
-        $responseBody->message = $response->http_response_body->message;
-        $responseEntity = new Response();
-        $responseEntity->responseCode = $response->http_response_code;
-        $responseEntity->body = $responseBody;
-
-        return $responseEntity;
+        return $this->plugin->sendMessage($postData);
     }
 
 }

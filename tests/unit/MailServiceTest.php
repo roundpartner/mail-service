@@ -37,14 +37,12 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Calls send message function
-     *
-     * @return \MailService\Entity\Response
+     * Test integration with MailGun Plugin
      */
-    protected function callSendMessage()
+    public function testSendMailIntegrationWithMailGun()
     {
         // todo: tidy up this test stub
-        $mock = $this->getMockBuilder('MailGun')
+        $mock = $this->getMockBuilder('Mailgun')
             ->setMethods(array('sendMessage'))
             ->getMock();
         $mock->expects($this->any())
@@ -56,7 +54,39 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
                 ),
                 'http_response_code' => 200,
             )));
-        $this->service->setService($mock);
+        $this->service->getPlugin()->setService($mock);
+        $postData = array(
+            'from' => 'Console <test@mailinator.com>',
+            'to' => 'Test <test@mailinator.com>',
+            'subject' => 'Test message',
+            'text' => 'This is a test',
+            'o:tracking' => false,
+        );
+        $this->assertInstanceOf('\MailService\Entity\Response', $this->service->sendMessage($postData));
+    }
+
+    /**
+     * Calls send message function
+     *
+     * @return \MailService\Entity\Response
+     */
+    protected function callSendMessage()
+    {
+        // todo: tidy up this test stub
+        $responseBody = new \MailService\Entity\ResponseBody();
+        $responseBody->id = '';
+        $responseBody->message = '';
+        $response = new \MailService\Entity\Response();
+        $response->body = $responseBody;
+        $response->responseCode = 200;
+
+        $mock = $this->getMockBuilder('MailGun')
+            ->setMethods(array('sendMessage'))
+            ->getMock();
+        $mock->expects($this->any())
+            ->method('sendMessage')
+            ->will($this->returnValue($response));
+        $this->service->setPlugin($mock);
 
         $postData = array(
             'from' => 'Console <test@mailinator.com>',

@@ -21,9 +21,27 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests mail can be sent
+     * Tests sending mail returns response
      */
     public function testSendMail()
+    {
+        $this->assertInstanceOf('\MailService\Entity\Response', $this->callSendMessage());
+    }
+
+    /**
+     * Tests that mail was successfully sent
+     */
+    public function testSendMailSentSuccessfully()
+    {
+        $this->assertEquals(200, $this->callSendMessage()->responseCode);
+    }
+
+    /**
+     * Calls send message function
+     *
+     * @return \MailService\Entity\Response
+     */
+    protected function callSendMessage()
     {
         // todo: tidy up this test stub
         $mock = $this->getMockBuilder('MailGun')
@@ -47,7 +65,7 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
             'text' => 'This is a test',
             'o:tracking' => false,
         );
-        $this->assertInstanceOf('\MailService\Entity\Response', $this->service->sendMessage($postData));
+        return $this->service->sendMessage($postData);
     }
 
 }

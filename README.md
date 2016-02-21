@@ -32,7 +32,7 @@ Any plugin can be used as long as they implement the MailServiceInterface interf
 
 The plugin can be loaded by setting the plugin variable in the configuration
 
-```
+```php
 $config = new Configuration();
 $config->plugin = 'MyCustomPlugin';
 return new MailService($config);

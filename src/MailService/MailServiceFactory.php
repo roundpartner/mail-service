@@ -4,6 +4,11 @@ namespace MailService;
 
 use MailService\Entity\Configuration;
 
+/**
+ * Class MailServiceFactory
+ *
+ * @package MailService
+ */
 class MailServiceFactory
 {
     /**

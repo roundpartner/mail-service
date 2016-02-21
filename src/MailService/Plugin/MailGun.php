@@ -50,15 +50,31 @@ implements MailServiceInterface
      */
     public function sendMessage($postData)
     {
-        // todo: tidy up this code
         $response = $this->service->sendMessage($this->config->endpoint, $postData);
-        $responseBody = new ResponseBody();
-        $responseBody->id = $response->http_response_body->id;
-        $responseBody->message = $response->http_response_body->message;
+        return $this->getResponseFromJson($response);
+    }
+
+    /**
+     * @param $response
+     * @return Response
+     */
+    private function getResponseFromJson($response)
+    {
         $responseEntity = new Response();
         $responseEntity->responseCode = $response->http_response_code;
-        $responseEntity->body = $responseBody;
-
+        $responseEntity->body = $this->getResponseBodyFromJson($response->http_response_body);
         return $responseEntity;
+    }
+
+    /**
+     * @param $body
+     * @return ResponseBody
+     */
+    private function getResponseBodyFromJson($body)
+    {
+        $responseBody = new ResponseBody();
+        $responseBody->id = $body->id;
+        $responseBody->message = $body->message;
+        return $responseBody;
     }
 }

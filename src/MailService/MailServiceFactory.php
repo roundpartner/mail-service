@@ -11,6 +11,9 @@ use MailService\Entity\Configuration;
  */
 class MailServiceFactory
 {
+
+    const DEFAULT_PLUGIN = 'MailGun';
+
     /**
      * Factory method to create new mail service
      *
@@ -21,6 +24,7 @@ class MailServiceFactory
     public static function createService($key, $endpoint)
     {
         $config = new Configuration();
+        $config->plugin = self::DEFAULT_PLUGIN;
         $config->key = $key;
         $config->endpoint = $endpoint;
         return new MailService($config);

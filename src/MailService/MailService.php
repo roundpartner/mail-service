@@ -16,14 +16,9 @@ implements MailServiceInterface
 {
 
     /**
-     * @var MailGun
+     * @var MailServiceInterface
      */
     protected $plugin;
-
-    /**
-     * @var Configuration
-     */
-    protected $config;
 
     /**
      * MailService constructor.
@@ -32,8 +27,7 @@ implements MailServiceInterface
      */
     public function __construct($config)
     {
-        $this->config = $config;
-        $this->plugin = new Plugin\MailGun($config);
+        $this->plugin = PluginFactory::getPlugin($config);
     }
 
     /**

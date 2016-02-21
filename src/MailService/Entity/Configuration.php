@@ -8,6 +8,11 @@ class Configuration
     /**
      * @var string
      */
+    public $plugin;
+
+    /**
+     * @var string
+     */
     public $endpoint;
 
     /**

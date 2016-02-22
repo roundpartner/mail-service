@@ -46,7 +46,7 @@ implements MailServiceInterface
     /**
      * @param array $postData
      *
-     * @return Response
+     * @return @return \MailService\Entity\Response
      */
     public function sendMessage($postData)
     {

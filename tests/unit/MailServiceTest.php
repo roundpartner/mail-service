@@ -62,7 +62,8 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
             'text' => 'This is a test',
             'o:tracking' => false,
         );
-        $this->assertInstanceOf('\MailService\Entity\Response', $this->service->sendMessage($postData));
+        $this->service->sendMessage($postData);
+        $this->assertInstanceOf('\MailService\Entity\Response', $this->service->getResponse());
     }
 
     /**
@@ -95,7 +96,8 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
             'text' => 'This is a test',
             'o:tracking' => false,
         );
-        return $this->service->sendMessage($postData);
+        $this->service->sendMessage($postData);
+        return $this->service->getResponse();
     }
 
 }

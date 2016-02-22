@@ -20,6 +20,11 @@ implements MailServiceInterface
     protected $plugin;
 
     /**
+     * @var Response
+     */
+    protected $response;
+
+    /**
      * MailService constructor.
      *
      * @param Configuration $config
@@ -41,7 +46,7 @@ implements MailServiceInterface
     }
 
     /**
-     * @return MailServiceInterface
+     * @return \MailService\MailServiceInterface
      */
     public function getPlugin()
     {
@@ -51,11 +56,23 @@ implements MailServiceInterface
     /**
      * @param array $postData
      *
-     * @return Response
+     * @return bool
      */
     public function sendMessage($postData)
     {
-        return $this->plugin->sendMessage($postData);
+        $this->response = $this->plugin->sendMessage($postData);
+        if ($this->response->responseCode == 200) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return Response
+     */
+    public function getResponse()
+    {
+        return $this->response;
     }
 
 }

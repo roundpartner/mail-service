@@ -37,3 +37,9 @@ $config = new Configuration();
 $config->plugin = 'MyCustomPlugin';
 return new MailService($config);
 ```
+
+## Clean Code
+
+```bash
+./vendor/bin/phpcbf --standard=psr2 ./src
+```

@@ -19,5 +19,4 @@ class Configuration
      * @var string
      */
     public $key;
-
 }

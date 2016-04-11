@@ -14,5 +14,4 @@ class MailServiceFactoryTest extends PHPUnit_Framework_TestCase
         $service = \MailService\MailServiceFactory::createService('testkey', 'mailinator.com');
         $this->assertInstanceOf('\MailService\MailService', $service);
     }
-
 }

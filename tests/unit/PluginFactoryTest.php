@@ -27,5 +27,4 @@ class PluginFactoryTest extends PHPUnit_Framework_TestCase
         $config->plugin = 'FooBar';
         \MailService\PluginFactory::getPlugin($config);
     }
-
 }

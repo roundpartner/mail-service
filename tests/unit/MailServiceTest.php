@@ -1,5 +1,7 @@
 <?php
 
+namespace RoundPartner\Test\Unit;
+
 /**
  * Class MailServiceTest
  */

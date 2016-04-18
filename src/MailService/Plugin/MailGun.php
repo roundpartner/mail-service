@@ -7,8 +7,7 @@ use MailService\MailServiceInterface;
 use MailService\Entity\Response;
 use MailService\Entity\ResponseBody;
 
-class MailGun
-implements MailServiceInterface
+class MailGun implements MailServiceInterface
 {
 
     /**

@@ -10,8 +10,7 @@ use MailService\Entity\Response;
  *
  * @package MailService
  */
-class MailService
-implements MailServiceInterface
+class MailService implements MailServiceInterface
 {
 
     /**
@@ -74,5 +73,4 @@ implements MailServiceInterface
     {
         return $this->response;
     }
-
 }

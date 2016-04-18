@@ -99,5 +99,4 @@ class MailServiceTest extends PHPUnit_Framework_TestCase
         $this->service->sendMessage($postData);
         return $this->service->getResponse();
     }
-
 }

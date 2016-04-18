@@ -5,7 +5,7 @@ namespace RoundPartner\Test\Unit;
 /**
  * Class MailServiceTest
  */
-class MailServiceTest extends PHPUnit_Framework_TestCase
+class MailServiceTest extends \PHPUnit_Framework_TestCase
 {
 
     /**

@@ -5,7 +5,7 @@ namespace RoundPartner\Test\Unit;
 /**
  * Class PluginFactoryTest
  */
-class PluginFactoryTest extends PHPUnit_Framework_TestCase
+class PluginFactoryTest extends \PHPUnit_Framework_TestCase
 {
 
     /**

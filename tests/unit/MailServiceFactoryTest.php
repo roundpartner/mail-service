@@ -5,7 +5,7 @@ namespace RoundPartner\Test\Unit;
 /**
  * Class MailServiceFactoryTest
  */
-class MailServiceFactoryTest extends PHPUnit_Framework_TestCase
+class MailServiceFactoryTest extends \PHPUnit_Framework_TestCase
 {
 
     /**

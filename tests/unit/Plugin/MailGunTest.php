@@ -2,7 +2,7 @@
 
 namespace RoundPartner\Test\Unit\Plugin;
 
-class MailGunTest extends PHPUnit_Framework_TestCase
+class MailGunTest extends \PHPUnit_Framework_TestCase
 {
 
     /**

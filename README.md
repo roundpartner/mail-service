@@ -1,4 +1,4 @@
-# mailservice
+# Mail Service
 
 A service for sending email transactions.
 

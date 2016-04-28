@@ -8,8 +8,8 @@
     }
   ],
   "autoload": {
-    "psr-0": {
-      "MailService": "src/"
+    "psr-4": {
+      "MailService\\": "src/MailService/"
     }
   },
   "autoload-dev": {

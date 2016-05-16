@@ -1,6 +1,6 @@
 <?php
 
-namespace MailService\Entity;
+namespace RoundPartner\MailService\Entity;
 
 class Message
 {

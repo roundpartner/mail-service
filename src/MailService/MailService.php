@@ -1,6 +1,6 @@
 <?php
 
-namespace MailService;
+namespace RoundPartner\MailService;
 
 use MailService\Entity\Configuration;
 use MailService\Entity\Response;

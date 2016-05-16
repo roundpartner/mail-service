@@ -1,8 +1,8 @@
 <?php
 
-namespace MailService;
+namespace RoundPartner\MailService;
 
-use MailService\Entity\Configuration;
+use RoundPartner\MailService\Entity\Configuration;
 
 /**
  * Class PluginFactory
@@ -12,7 +12,7 @@ use MailService\Entity\Configuration;
 class PluginFactory
 {
 
-    const PLUGIN_CLASS_PREFIX = 'MailService\\Plugin\\';
+    const PLUGIN_CLASS_PREFIX = 'RoundPartner\\MailService\\Plugin\\';
 
     /**
      * @param Configuration $config

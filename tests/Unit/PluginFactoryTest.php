@@ -13,10 +13,10 @@ class PluginFactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetPlugin()
     {
-        $config = new \MailService\Entity\Configuration();
+        $config = new \RoundPartner\MailService\Entity\Configuration();
         $config->plugin = 'MailGun';
-        $plugin = \MailService\PluginFactory::getPlugin($config);
-        $this->assertInstanceOf('\MailService\Plugin\MailGun', $plugin);
+        $plugin = \RoundPartner\MailService\PluginFactory::getPlugin($config);
+        $this->assertInstanceOf('\RoundPartner\MailService\Plugin\MailGun', $plugin);
     }
 
     /**
@@ -25,8 +25,8 @@ class PluginFactoryTest extends \PHPUnit_Framework_TestCase
     public function testGetUnknownPlugin()
     {
         $this->setExpectedException('\Exception', 'Plugin FooBar not found.');
-        $config = new \MailService\Entity\Configuration();
+        $config = new \RoundPartner\MailService\Entity\Configuration();
         $config->plugin = 'FooBar';
-        \MailService\PluginFactory::getPlugin($config);
+        \RoundPartner\MailService\PluginFactory::getPlugin($config);
     }
 }

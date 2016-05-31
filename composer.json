@@ -9,7 +9,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "RoundPartner\\": "src/"
+      "RoundPartner\\MailService\\": "src/MailService/"
     }
   },
   "autoload-dev": {

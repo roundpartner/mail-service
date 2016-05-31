@@ -1,6 +1,6 @@
 <?php
 
-namespace MailService;
+namespace RoundPartner\MailService;
 
 /**
  * Interface MailServiceInterface
@@ -12,7 +12,7 @@ interface MailServiceInterface
     /**
      * @param array $postData
      *
-     * @return \MailService\Entity\Response
+     * @return \RoundPartner\MailService\Entity\Response
      */
     public function sendMessage($postData);
 }

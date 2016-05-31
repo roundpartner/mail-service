@@ -1,8 +1,8 @@
 <?php
 
-namespace MailService;
+namespace RoundPartner\MailService;
 
-use MailService\Entity\Configuration;
+use RoundPartner\MailService\Entity\Configuration;
 
 /**
  * Class MailServiceFactory

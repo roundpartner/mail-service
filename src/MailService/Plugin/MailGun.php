@@ -1,11 +1,11 @@
 <?php
 
-namespace MailService\Plugin;
+namespace RoundPartner\MailService\Plugin;
 
-use MailService\Entity\Configuration;
-use MailService\MailServiceInterface;
-use MailService\Entity\Response;
-use MailService\Entity\ResponseBody;
+use RoundPartner\MailService\Entity\Configuration;
+use RoundPartner\MailService\MailServiceInterface;
+use RoundPartner\MailService\Entity\Response;
+use RoundPartner\MailService\Entity\ResponseBody;
 
 class MailGun implements MailServiceInterface
 {

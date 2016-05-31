@@ -13,7 +13,7 @@ class MailServiceFactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreateMailService()
     {
-        $service = \MailService\MailServiceFactory::createService('testkey', 'mailinator.com');
-        $this->assertInstanceOf('\MailService\MailService', $service);
+        $service = \RoundPartner\MailService\MailServiceFactory::createService('testkey', 'mailinator.com');
+        $this->assertInstanceOf('\RoundPartner\MailService\MailService', $service);
     }
 }

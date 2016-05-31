@@ -2,11 +2,14 @@
 
 namespace RoundPartner\Test\Unit\Plugin;
 
+use \RoundPartner\MailService\Entity\Configuration;
+use \RoundPartner\MailService\Plugin\MailGun;
+
 class MailGunTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var \MailService\Plugin\MailGun
+     * @var \RoundPartner\MailService\Plugin\MailGun
      */
     protected $service;
 
@@ -16,10 +19,10 @@ class MailGunTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = new \MailService\Entity\Configuration();
+        $config = new Configuration();
         $config->key = 'fakekey';
         $config->endpoint = 'mailinator.com';
-        $this->service = new \MailService\Plugin\MailGun($config);
+        $this->service = new MailGun($config);
     }
 
     /**
@@ -27,7 +30,7 @@ class MailGunTest extends \PHPUnit_Framework_TestCase
      */
     public function testSendMail()
     {
-        $this->assertInstanceOf('\MailService\Entity\Response', $this->callSendMessage());
+        $this->assertInstanceOf('\RoundPartner\MailService\Entity\Response', $this->callSendMessage());
     }
 
     /**
@@ -41,7 +44,7 @@ class MailGunTest extends \PHPUnit_Framework_TestCase
     /**
      * Calls send message function
      *
-     * @return \MailService\Entity\Response
+     * @return \RoundPartner\MailService\Entity\Response
      */
     protected function callSendMessage()
     {

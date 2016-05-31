@@ -2,6 +2,8 @@
 
 namespace RoundPartner\Test\Unit;
 
+use \RoundPartner\MailService\MailServiceFactory;
+
 /**
  * Class MailServiceTest
  */
@@ -9,7 +11,7 @@ class MailServiceTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var \MailService\MailService
+     * @var \RoundPartner\MailService\MailService
      */
     protected $service;
 
@@ -19,7 +21,7 @@ class MailServiceTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->service = \MailService\MailServiceFactory::createService('fakekey', 'mailinator.com');
+        $this->service = MailServiceFactory::createService('fakekey', 'mailinator.com');
     }
 
     /**
@@ -27,7 +29,7 @@ class MailServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testSendMail()
     {
-        $this->assertInstanceOf('\MailService\Entity\Response', $this->callSendMessage());
+        $this->assertInstanceOf('\RoundPartner\MailService\Entity\Response', $this->callSendMessage());
     }
 
     /**
@@ -65,21 +67,21 @@ class MailServiceTest extends \PHPUnit_Framework_TestCase
             'o:tracking' => false,
         );
         $this->service->sendMessage($postData);
-        $this->assertInstanceOf('\MailService\Entity\Response', $this->service->getResponse());
+        $this->assertInstanceOf('\RoundPartner\MailService\Entity\Response', $this->service->getResponse());
     }
 
     /**
      * Calls send message function
      *
-     * @return \MailService\Entity\Response
+     * @return \RoundPartner\MailService\Entity\Response
      */
     protected function callSendMessage()
     {
         // todo: tidy up this test stub
-        $responseBody = new \MailService\Entity\ResponseBody();
+        $responseBody = new \RoundPartner\MailService\Entity\ResponseBody();
         $responseBody->id = '';
         $responseBody->message = '';
-        $response = new \MailService\Entity\Response();
+        $response = new \RoundPartner\MailService\Entity\Response();
         $response->body = $responseBody;
         $response->responseCode = 200;
 

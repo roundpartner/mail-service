@@ -1,6 +1,6 @@
 <?php
 
-namespace RoundPartner\Test\Unit;
+namespace RoundPartner\Tests\Unit;
 
 use \RoundPartner\MailService\MailServiceFactory;
 

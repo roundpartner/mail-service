@@ -1,6 +1,6 @@
 <?php
 
-namespace RoundPartner\Test\Unit\Plugin;
+namespace RoundPartner\Tests\Unit\Plugin;
 
 use \RoundPartner\MailService\Entity\Configuration;
 use \RoundPartner\MailService\Plugin\MailGun;

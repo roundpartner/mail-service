@@ -9,12 +9,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "RoundPartner\\MailService\\": "src/MailService/"
+      "RoundPartner\\MailService\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "RoundPartner\\Test\\": "tests/"
+      "RoundPartner\\Tests\\": "tests/"
     }
   },
   "require": {

@@ -2,6 +2,7 @@
 
 namespace RoundPartner\MailService;
 
+use Mailgun\Connection\Exceptions\MissingRequiredParameters;
 use MailService\Entity\Configuration;
 use MailService\Entity\Response;
 
@@ -45,7 +46,7 @@ class MailService implements MailServiceInterface
     }
 
     /**
-     * @return \MailService\MailServiceInterface
+     * @return MailServiceInterface
      */
     public function getPlugin()
     {
@@ -59,7 +60,11 @@ class MailService implements MailServiceInterface
      */
     public function sendMessage($postData)
     {
-        $this->response = $this->plugin->sendMessage($postData);
+        try {
+            $this->response = $this->plugin->sendMessage($postData);
+        } catch (MissingRequiredParameters $exception) {
+            return false;
+        }
         if ($this->response->responseCode == 200) {
             return true;
         }

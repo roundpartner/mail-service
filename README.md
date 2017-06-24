@@ -22,7 +22,6 @@ $service->sendMessage($postData);
 Mailguns api is mocked to allow for testing of this services functionality.
 
 ```bash
-cd tests/
 phpunit
 ```
 

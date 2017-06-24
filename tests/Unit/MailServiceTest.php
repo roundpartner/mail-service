@@ -1,7 +1,8 @@
 <?php
 
-namespace RoundPartner\Test\Unit;
+namespace RoundPartner\Tests\Unit;
 
+use Mailgun\Connection\Exceptions\MissingRequiredParameters;
 use \RoundPartner\MailService\MailServiceFactory;
 
 /**
@@ -70,6 +71,21 @@ class MailServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\RoundPartner\MailService\Entity\Response', $this->service->getResponse());
     }
 
+    public function testSendMailWithMissingParametersReturnsFalse()
+    {
+        // todo: tidy up this test stub
+        $mock = $this->getMockBuilder('Mailgun')
+            ->setMethods(array('sendMessage'))
+            ->getMock();
+        $mock->expects($this->any())
+            ->method('sendMessage')
+            ->will($this->throwException(
+                new MissingRequiredParameters('The parameters passed to the API were invalid. Check your inputs!')
+            ));
+        $this->service->getPlugin()->setService($mock);
+        $postData = array();
+        $this->assertFalse($this->service->sendMessage($postData));
+    }
     /**
      * Calls send message function
      *

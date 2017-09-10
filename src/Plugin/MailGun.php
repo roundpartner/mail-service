@@ -45,7 +45,7 @@ class MailGun implements MailServiceInterface
     /**
      * @param array $postData
      *
-     * @return @return \MailService\Entity\Response
+     * @return \RoundPartner\MailService\Entity\Response
      */
     public function sendMessage($postData)
     {
